@@ -3,24 +3,32 @@
 @import helper._
 @import bootstrap._
 
-@main("Todo list") {
+@main("Notes List") {
 	<div class="panel panel-default">
 		<div class="panel-heading">
 		   	@form(routes.Application.newTask()) {
-		   		<legend>@page.getTotalRowCount() Task(s)</legend>
+		   		<legend>Notes List</legend>
 				<div class="input-group">
 				<input type="text" 
 					   autofocus
 					   name="label" 
 				       class="form-control" 
-				       placeholder="Task Name" 
-				       id = "taskName"/>
+				       placeholder="Note Name" 
+							 id = "taskName"/>
+							 <!-- <input type="text" 
+					   autofocus
+					   name="label" 
+				       class="form-control" 
+				       placeholder="Note Text" 
+				       id = "taskText"/> -->
 				  <span class="input-group-btn">
 				    <button id="addButton" class="btn btn-default" type="submit">Add</button>
 				  </span>
 				</div>
 			}	
-		  </div>
+			</div>
+			
+
 		  <div class="panel-body">
 		    <ul class="list-group">
 		        @for(task <- page.getList()) {
@@ -40,7 +48,7 @@
 		    </ul>
 		  </div>
 	</div>
-	@pager(
+	<!-- @pager(
 		page.hasPrev(), 
 		page.hasNext(), 
 		routes.Application.tasks(page.getPageIndex() - 1).url, 
@@ -48,5 +56,5 @@
 		page.getDisplayXtoYofZ(), 
 		page.getPageIndex()
 	)
-    
+     -->
 }
